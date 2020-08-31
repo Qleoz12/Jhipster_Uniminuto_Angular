@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "co.sistemas.transaccionales.uniminuto",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.4.1",
+    "applicationType": "monolith",
+    "baseName": "pruebaJhipster",
+    "packageName": "co.sistemas.transaccionales.uniminuto",
+    "packageFolder": "co/sistemas/transaccionales/uniminuto",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mssql",
+    "prodDatabaseType": "mssql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NjZmODJiODkxNDMzM2FiYmQ2MmUwN2UwODEzY2Q2NDk0OTViNWNkYzY4M2I4YzEzODgyOTc1ZGM1MjUzZWQ2Y2YyNGIwMmQ1OTA3ZWIzY2NlNTc0OTUyMTA4MTQ2NDZkZGRmODMzNjc2NjU1MDc2ZWNiMzYxZjJhMmYwYmU0ZmQ=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es"],
+    "blueprints": []
+  }
+}
