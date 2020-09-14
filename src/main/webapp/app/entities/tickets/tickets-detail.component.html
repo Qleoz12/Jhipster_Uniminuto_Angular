@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tickets">
+            <h2><span jhiTranslate="pruebaJhipsterApp.tickets.detail.title">Tickets</span> {{tickets.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="pruebaJhipsterApp.tickets.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{tickets.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.tickets.valor">Valor</span></dt>
+                <dd>
+                    <span>{{tickets.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.tickets.descuento">Descuento</span></dt>
+                <dd>
+                    <span>{{tickets.descuento}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.tickets.estado">Estado</span></dt>
+                <dd>
+                    <span>{{tickets.estado}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.tickets.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{tickets.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.tickets.clientes">Clientes</span></dt>
+                <dd>
+                    <div *ngIf="tickets.clientesId">
+                        <a [routerLink]="['/clientes', tickets.clientesId, 'view']">{{tickets.clientesNombres}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.tickets.programasVuelos">Programas Vuelos</span></dt>
+                <dd>
+                    <div *ngIf="tickets.programasVuelosId">
+                        <a [routerLink]="['/programas-vuelos', tickets.programasVuelosId, 'view']">{{tickets.programasVuelosNombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tickets', tickets.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+{
+    "name": "Vuelos",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diasSemana",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaSalida",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "fechaArribo9",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "plazasVacias",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "orden",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "estadoVuelo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "esEscala",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "aeropuertos",
+            "otherEntityRelationshipName": "vuelos",
+            "relationshipName": "aeropuertoSalida",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "aeropuertos",
+            "otherEntityRelationshipName": "vuelos",
+            "relationshipName": "aeropuertoArribo",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "aviones",
+            "otherEntityRelationshipName": "vuelos",
+            "relationshipName": "idAvion",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "programasVuelos",
+            "otherEntityRelationshipName": "vuelos",
+            "relationshipName": "idPrograma",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "changelogDate": "20200914005205",
+    "entityTableName": "vuelos",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

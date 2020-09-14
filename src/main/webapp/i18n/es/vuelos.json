@@ -1,0 +1,33 @@
+{
+  "pruebaJhipsterApp": {
+    "vuelos": {
+      "home": {
+        "title": "Vuelos",
+        "createLabel": "Crear nuevo Vuelos",
+        "createOrEditLabel": "Crear o editar Vuelos",
+        "notFound": "No Vuelos found"
+      },
+      "created": "Un nuevo Vuelos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Vuelos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Vuelos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Vuelos {{ id }}?"
+      },
+      "detail": {
+        "title": "Vuelos"
+      },
+      "nombre": "Nombre",
+      "diasSemana": "Dias Semana",
+      "fechaSalida": "Fecha Salida",
+      "fechaArribo9": "Fecha Arribo 9",
+      "plazasVacias": "Plazas Vacias",
+      "orden": "Orden",
+      "estadoVuelo": "Estado Vuelo",
+      "esEscala": "Es Escala",
+      "aeropuertoSalida": "Aeropuerto Salida",
+      "aeropuertoArribo": "Aeropuerto Arribo",
+      "idAvion": "Id Avion",
+      "idPrograma": "Id Programa"
+    }
+  }
+}

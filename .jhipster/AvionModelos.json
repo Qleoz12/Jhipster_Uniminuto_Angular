@@ -1,0 +1,31 @@
+{
+    "name": "AvionModelos",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "capacidad",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "aviones",
+            "otherEntityRelationshipName": "avionModelos",
+            "relationshipName": "aviones"
+        }
+    ],
+    "changelogDate": "20200913064641",
+    "entityTableName": "avion_modelos",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

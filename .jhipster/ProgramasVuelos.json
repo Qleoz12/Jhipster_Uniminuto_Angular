@@ -1,0 +1,45 @@
+{
+    "name": "ProgramasVuelos",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalDias",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tickets",
+            "otherEntityRelationshipName": "programasVuelos",
+            "relationshipName": "tickets"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "aeropuertos",
+            "otherEntityRelationshipName": "programasVuelos",
+            "relationshipName": "aeropuertoSalida",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "aeropuertos",
+            "otherEntityRelationshipName": "programasVuelos",
+            "relationshipName": "aeropuertoArribo",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "changelogDate": "20200914005204",
+    "entityTableName": "programas_vuelos",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

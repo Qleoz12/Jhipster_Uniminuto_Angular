@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Vuelos.
+    -->
+    <changeSet id="20200914005205-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="aeropuerto_salida_id"
+                                 baseTableName="vuelos"
+                                 constraintName="fk_vuelos_aeropuerto_salida_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aeropuertos"/>
+
+        <addForeignKeyConstraint baseColumnNames="aeropuerto_arribo_id"
+                                 baseTableName="vuelos"
+                                 constraintName="fk_vuelos_aeropuerto_arribo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aeropuertos"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_avion_id"
+                                 baseTableName="vuelos"
+                                 constraintName="fk_vuelos_id_avion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aviones"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_programa_id"
+                                 baseTableName="vuelos"
+                                 constraintName="fk_vuelos_id_programa_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="programas_vuelos"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,104 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="pruebaJhipsterApp.vuelos.home.title">Vuelos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vuelos" [routerLink]="['/vuelos/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="pruebaJhipsterApp.vuelos.home.createLabel">
+            Create a new Vuelos
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="vuelos?.length === 0">
+        <span jhiTranslate="pruebaJhipsterApp.vuelos.home.notFound">No vuelos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="vuelos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="pruebaJhipsterApp.vuelos.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="diasSemana"><span jhiTranslate="pruebaJhipsterApp.vuelos.diasSemana">Dias Semana</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fechaSalida"><span jhiTranslate="pruebaJhipsterApp.vuelos.fechaSalida">Fecha Salida</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fechaArribo9"><span jhiTranslate="pruebaJhipsterApp.vuelos.fechaArribo9">Fecha Arribo 9</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="plazasVacias"><span jhiTranslate="pruebaJhipsterApp.vuelos.plazasVacias">Plazas Vacias</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="orden"><span jhiTranslate="pruebaJhipsterApp.vuelos.orden">Orden</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="estadoVuelo"><span jhiTranslate="pruebaJhipsterApp.vuelos.estadoVuelo">Estado Vuelo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="esEscala"><span jhiTranslate="pruebaJhipsterApp.vuelos.esEscala">Es Escala</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="aeropuertoSalidaNombre"><span jhiTranslate="pruebaJhipsterApp.vuelos.aeropuertoSalida">Aeropuerto Salida</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="aeropuertoArriboNombre"><span jhiTranslate="pruebaJhipsterApp.vuelos.aeropuertoArribo">Aeropuerto Arribo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="idAvionNombre"><span jhiTranslate="pruebaJhipsterApp.vuelos.idAvion">Id Avion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="idProgramaNombre"><span jhiTranslate="pruebaJhipsterApp.vuelos.idPrograma">Id Programa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let vuelos of vuelos ;trackBy: trackId">
+                <td><a [routerLink]="['/vuelos', vuelos.id, 'view' ]">{{vuelos.id}}</a></td>
+                <td>{{vuelos.nombre}}</td>
+                <td>{{vuelos.diasSemana}}</td>
+                <td>{{vuelos.fechaSalida | date:'medium'}}</td>
+                <td>{{vuelos.fechaArribo9 | date:'medium'}}</td>
+                <td>{{vuelos.plazasVacias}}</td>
+                <td>{{vuelos.orden}}</td>
+                <td>{{vuelos.estadoVuelo}}</td>
+                <td>{{vuelos.esEscala}}</td>
+                <td>
+                    <div *ngIf="vuelos.aeropuertoSalidaId">
+                        <a [routerLink]="['/aeropuertos', vuelos.aeropuertoSalidaId , 'view' ]" >{{vuelos.aeropuertoSalidaNombre}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="vuelos.aeropuertoArriboId">
+                        <a [routerLink]="['/aeropuertos', vuelos.aeropuertoArriboId , 'view' ]" >{{vuelos.aeropuertoArriboNombre}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="vuelos.idAvionId">
+                        <a [routerLink]="['/aviones', vuelos.idAvionId , 'view' ]" >{{vuelos.idAvionNombre}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="vuelos.idProgramaId">
+                        <a [routerLink]="['/programas-vuelos', vuelos.idProgramaId , 'view' ]" >{{vuelos.idProgramaNombre}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/vuelos', vuelos.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/vuelos', vuelos.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/vuelos', { outlets: { popup: vuelos.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="vuelos?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

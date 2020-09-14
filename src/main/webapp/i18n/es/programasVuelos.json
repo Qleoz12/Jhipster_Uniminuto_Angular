@@ -1,0 +1,26 @@
+{
+  "pruebaJhipsterApp": {
+    "programasVuelos": {
+      "home": {
+        "title": "Programas Vuelos",
+        "createLabel": "Crear nuevo Programas Vuelos",
+        "createOrEditLabel": "Crear o editar Programas Vuelos",
+        "notFound": "No Programas Vuelos found"
+      },
+      "created": "Un nuevo Programas Vuelos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Programas Vuelos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Programas Vuelos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Programas Vuelos {{ id }}?"
+      },
+      "detail": {
+        "title": "Programas Vuelos"
+      },
+      "nombre": "Nombre",
+      "totalDias": "Total Dias",
+      "tickets": "Tickets",
+      "aeropuertoSalida": "Aeropuerto Salida",
+      "aeropuertoArribo": "Aeropuerto Arribo"
+    }
+  }
+}

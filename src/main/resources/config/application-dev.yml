@@ -44,9 +44,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:sqlserver://localhost:1433;database=pruebaJhipster
-    username: SA
-    password: yourStrong(!)Password
+    url: jdbc:sqlserver://localhost:1433;database=Aeropuerto
+    username: sa
+    password: superu1
     hikari:
       poolName: Hikari
       auto-commit: false

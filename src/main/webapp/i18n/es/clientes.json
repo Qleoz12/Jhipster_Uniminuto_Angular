@@ -1,0 +1,26 @@
+{
+  "pruebaJhipsterApp": {
+    "clientes": {
+      "home": {
+        "title": "Clientes",
+        "createLabel": "Crear nuevo Clientes",
+        "createOrEditLabel": "Crear o editar Clientes",
+        "notFound": "No Clientes found"
+      },
+      "created": "Un nuevo Clientes ha sido creado con el identificador {{ param }}",
+      "updated": "Un Clientes ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Clientes ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Clientes {{ id }}?"
+      },
+      "detail": {
+        "title": "Clientes"
+      },
+      "nombres": "Nombres",
+      "appelidos": "Appelidos",
+      "documentoTipo": "Documento Tipo",
+      "documentoNumero": "Documento Numero",
+      "tickets": "Tickets"
+    }
+  }
+}

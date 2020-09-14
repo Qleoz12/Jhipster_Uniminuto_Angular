@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="aviones">
+            <h2><span jhiTranslate="pruebaJhipsterApp.aviones.detail.title">Aviones</span> {{aviones.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="pruebaJhipsterApp.aviones.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{aviones.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.aviones.avionModelos">Avion Modelos</span></dt>
+                <dd>
+                    <div *ngIf="aviones.avionModelosId">
+                        <a [routerLink]="['/avion-modelos', aviones.avionModelosId, 'view']">{{aviones.avionModelosNombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aviones', aviones.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

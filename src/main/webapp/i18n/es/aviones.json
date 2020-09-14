@@ -1,0 +1,23 @@
+{
+  "pruebaJhipsterApp": {
+    "aviones": {
+      "home": {
+        "title": "Aviones",
+        "createLabel": "Crear nuevo Aviones",
+        "createOrEditLabel": "Crear o editar Aviones",
+        "notFound": "No Aviones found"
+      },
+      "created": "Un nuevo Aviones ha sido creado con el identificador {{ param }}",
+      "updated": "Un Aviones ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Aviones ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Aviones {{ id }}?"
+      },
+      "detail": {
+        "title": "Aviones"
+      },
+      "nombre": "Nombre",
+      "avionModelos": "Avion Modelos"
+    }
+  }
+}

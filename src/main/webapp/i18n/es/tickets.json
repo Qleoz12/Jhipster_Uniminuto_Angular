@@ -1,0 +1,28 @@
+{
+  "pruebaJhipsterApp": {
+    "tickets": {
+      "home": {
+        "title": "Tickets",
+        "createLabel": "Crear nuevo Tickets",
+        "createOrEditLabel": "Crear o editar Tickets",
+        "notFound": "No Tickets found"
+      },
+      "created": "Un nuevo Tickets ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tickets ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tickets ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tickets {{ id }}?"
+      },
+      "detail": {
+        "title": "Tickets"
+      },
+      "nombre": "Nombre",
+      "valor": "Valor",
+      "descuento": "Descuento",
+      "estado": "Estado",
+      "fecha": "Fecha",
+      "clientes": "Clientes",
+      "programasVuelos": "Programas Vuelos"
+    }
+  }
+}

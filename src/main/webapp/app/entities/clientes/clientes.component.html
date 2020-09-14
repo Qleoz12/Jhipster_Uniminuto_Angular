@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="pruebaJhipsterApp.clientes.home.title">Clientes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-clientes" [routerLink]="['/clientes/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="pruebaJhipsterApp.clientes.home.createLabel">
+            Create a new Clientes
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="clientes?.length === 0">
+        <span jhiTranslate="pruebaJhipsterApp.clientes.home.notFound">No clientes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="clientes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nombres"><span jhiTranslate="pruebaJhipsterApp.clientes.nombres">Nombres</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="appelidos"><span jhiTranslate="pruebaJhipsterApp.clientes.appelidos">Appelidos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="documentoTipo"><span jhiTranslate="pruebaJhipsterApp.clientes.documentoTipo">Documento Tipo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="documentoNumero"><span jhiTranslate="pruebaJhipsterApp.clientes.documentoNumero">Documento Numero</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let clientes of clientes ;trackBy: trackId">
+                <td><a [routerLink]="['/clientes', clientes.id, 'view' ]">{{clientes.id}}</a></td>
+                <td>{{clientes.nombres}}</td>
+                <td>{{clientes.appelidos}}</td>
+                <td>{{clientes.documentoTipo}}</td>
+                <td>{{clientes.documentoNumero}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/clientes', clientes.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/clientes', clientes.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/clientes', { outlets: { popup: clientes.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="clientes?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

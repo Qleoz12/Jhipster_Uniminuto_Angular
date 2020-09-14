@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="pruebaJhipsterApp.tickets.home.title">Tickets</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tickets" [routerLink]="['/tickets/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="pruebaJhipsterApp.tickets.home.createLabel">
+            Create a new Tickets
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="tickets?.length === 0">
+        <span jhiTranslate="pruebaJhipsterApp.tickets.home.notFound">No tickets found</span>
+    </div>
+    <div class="table-responsive" *ngIf="tickets?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="pruebaJhipsterApp.tickets.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="valor"><span jhiTranslate="pruebaJhipsterApp.tickets.valor">Valor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="descuento"><span jhiTranslate="pruebaJhipsterApp.tickets.descuento">Descuento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="estado"><span jhiTranslate="pruebaJhipsterApp.tickets.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fecha"><span jhiTranslate="pruebaJhipsterApp.tickets.fecha">Fecha</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="clientesNombres"><span jhiTranslate="pruebaJhipsterApp.tickets.clientes">Clientes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="programasVuelosNombre"><span jhiTranslate="pruebaJhipsterApp.tickets.programasVuelos">Programas Vuelos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tickets of tickets ;trackBy: trackId">
+                <td><a [routerLink]="['/tickets', tickets.id, 'view' ]">{{tickets.id}}</a></td>
+                <td>{{tickets.nombre}}</td>
+                <td>{{tickets.valor}}</td>
+                <td>{{tickets.descuento}}</td>
+                <td>{{tickets.estado}}</td>
+                <td>{{tickets.fecha | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="tickets.clientesId">
+                        <a [routerLink]="['/clientes', tickets.clientesId , 'view' ]" >{{tickets.clientesNombres}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tickets.programasVuelosId">
+                        <a [routerLink]="['/programas-vuelos', tickets.programasVuelosId , 'view' ]" >{{tickets.programasVuelosNombre}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/tickets', tickets.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tickets', tickets.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tickets', { outlets: { popup: tickets.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="tickets?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

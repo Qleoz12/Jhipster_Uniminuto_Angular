@@ -1,0 +1,103 @@
+entity Aviones {
+	id Long,
+    nombre String
+}
+
+entity AvionModelos {
+	id Long,
+    nombre String,
+  	capacidad Integer
+}
+entity Clientes {
+	id Long,
+    nombres String,
+    appelidos String,
+    documentoTipo String,
+    documentoNumero String
+}
+
+entity Tickets {
+	id Long,
+    nombre String,
+  	valor String,
+    descuento Integer,
+    estado Boolean,
+    fecha ZonedDateTime    
+}
+
+
+entity ProgramasVuelos {
+	id Long,
+    nombre String,
+  	totalDias Integer    
+}
+
+entity Vuelos {
+	id Long,
+    nombre String,
+  	diasSemana String,
+    fechaSalida ZonedDateTime,
+    fechaArribo9 ZonedDateTime,
+    plazasVacias Integer,
+    orden Integer,
+    estadoVuelo Integer,
+    esEscala Boolean
+
+}
+
+entity Aeropuertos {
+	id Long,
+    nombre String
+    
+}
+
+entity Ciudades {
+	id Long,
+    ciudad String,
+    pais String
+}
+
+
+
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+
+/**
+ * Many to one relationship.
+ */
+relationship OneToMany {
+    Clientes to Tickets{Clientes(nombres)}
+    ProgramasVuelos to Tickets{ProgramasVuelos(nombre)}
+    Ciudades to Aeropuertos{Ciudades(ciudad)}
+    AvionModelos to Aviones {AvionModelos(nombre)}
+}
+
+/**
+ * Many to many relationship.
+ */
+relationship ManyToOne {
+    ProgramasVuelos{aeropuertoSalida(nombre)} to Aeropuertos
+    ProgramasVuelos{aeropuertoArribo(nombre)} to Aeropuertos
+    Vuelos{aeropuertoSalida(nombre)} to Aeropuertos
+    Vuelos{aeropuertoArribo(nombre)} to Aeropuertos
+    Vuelos{idAvion(nombre)} to Aviones
+    Vuelos{idPrograma(nombre)} to ProgramasVuelos
+
+    
+}
+
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

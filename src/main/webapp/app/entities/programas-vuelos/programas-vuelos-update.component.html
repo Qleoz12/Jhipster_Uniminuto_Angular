@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-programas-vuelos-heading" jhiTranslate="pruebaJhipsterApp.programasVuelos.home.createOrEditLabel">Create or edit a Programas Vuelos</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.programasVuelos.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.programasVuelos.totalDias" for="field_totalDias">Total Dias</label>
+                    <input type="number" class="form-control" name="totalDias" id="field_totalDias"
+                           formControlName="totalDias"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.programasVuelos.aeropuertoSalida" for="field_aeropuertoSalida">Aeropuerto Salida</label>
+                    <select class="form-control" id="field_aeropuertoSalida" name="aeropuertoSalida" formControlName="aeropuertoSalidaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="aeropuertosOption.id" *ngFor="let aeropuertosOption of aeropuertos; trackBy: trackAeropuertosById">{{aeropuertosOption.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.programasVuelos.aeropuertoArribo" for="field_aeropuertoArribo">Aeropuerto Arribo</label>
+                    <select class="form-control" id="field_aeropuertoArribo" name="aeropuertoArribo" formControlName="aeropuertoArriboId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="aeropuertosOption.id" *ngFor="let aeropuertosOption of aeropuertos; trackBy: trackAeropuertosById">{{aeropuertosOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

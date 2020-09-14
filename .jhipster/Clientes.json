@@ -1,0 +1,39 @@
+{
+    "name": "Clientes",
+    "fields": [
+        {
+            "fieldName": "nombres",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "appelidos",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "documentoTipo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "documentoNumero",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tickets",
+            "otherEntityRelationshipName": "clientes",
+            "relationshipName": "tickets"
+        }
+    ],
+    "changelogDate": "20200914005202",
+    "entityTableName": "clientes",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

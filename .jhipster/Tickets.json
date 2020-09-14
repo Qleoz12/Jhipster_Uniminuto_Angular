@@ -1,0 +1,51 @@
+{
+    "name": "Tickets",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descuento",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "clientes",
+            "otherEntityRelationshipName": "tickets",
+            "relationshipName": "clientes",
+            "otherEntityField": "nombres"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "programasVuelos",
+            "otherEntityRelationshipName": "tickets",
+            "relationshipName": "programasVuelos",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "changelogDate": "20200914005203",
+    "entityTableName": "tickets",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

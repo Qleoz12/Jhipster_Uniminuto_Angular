@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tickets-heading" jhiTranslate="pruebaJhipsterApp.tickets.home.createOrEditLabel">Create or edit a Tickets</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.tickets.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.tickets.valor" for="field_valor">Valor</label>
+                    <input type="text" class="form-control" name="valor" id="field_valor"
+                           formControlName="valor"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.tickets.descuento" for="field_descuento">Descuento</label>
+                    <input type="number" class="form-control" name="descuento" id="field_descuento"
+                           formControlName="descuento"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.tickets.estado" for="field_estado">Estado</label>
+                    <input type="checkbox" class="form-control" name="estado" id="field_estado"
+                           formControlName="estado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.tickets.fecha" for="field_fecha">Fecha</label>
+                    <div class="d-flex">
+                        <input id="field_fecha" type="datetime-local" class="form-control" name="fecha" formControlName="fecha" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.tickets.clientes" for="field_clientes">Clientes</label>
+                    <select class="form-control" id="field_clientes" name="clientes" formControlName="clientesId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clientesOption.id" *ngFor="let clientesOption of clientes; trackBy: trackClientesById">{{clientesOption.nombres}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaJhipsterApp.tickets.programasVuelos" for="field_programasVuelos">Programas Vuelos</label>
+                    <select class="form-control" id="field_programasVuelos" name="programasVuelos" formControlName="programasVuelosId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="programasVuelosOption.id" *ngFor="let programasVuelosOption of programasvuelos; trackBy: trackProgramasVuelosById">{{programasVuelosOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

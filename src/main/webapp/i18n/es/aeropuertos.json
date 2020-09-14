@@ -1,0 +1,23 @@
+{
+  "pruebaJhipsterApp": {
+    "aeropuertos": {
+      "home": {
+        "title": "Aeropuertos",
+        "createLabel": "Crear nuevo Aeropuertos",
+        "createOrEditLabel": "Crear o editar Aeropuertos",
+        "notFound": "No Aeropuertos found"
+      },
+      "created": "Un nuevo Aeropuertos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Aeropuertos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Aeropuertos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Aeropuertos {{ id }}?"
+      },
+      "detail": {
+        "title": "Aeropuertos"
+      },
+      "nombre": "Nombre",
+      "ciudades": "Ciudades"
+    }
+  }
+}

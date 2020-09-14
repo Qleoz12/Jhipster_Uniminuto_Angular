@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="aeropuertos">
+            <h2><span jhiTranslate="pruebaJhipsterApp.aeropuertos.detail.title">Aeropuertos</span> {{aeropuertos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="pruebaJhipsterApp.aeropuertos.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{aeropuertos.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.aeropuertos.ciudades">Ciudades</span></dt>
+                <dd>
+                    <div *ngIf="aeropuertos.ciudadesId">
+                        <a [routerLink]="['/ciudades', aeropuertos.ciudadesId, 'view']">{{aeropuertos.ciudadesCiudad}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aeropuertos', aeropuertos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

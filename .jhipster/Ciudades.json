@@ -1,0 +1,31 @@
+{
+    "name": "Ciudades",
+    "fields": [
+        {
+            "fieldName": "ciudad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pais",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "aeropuertos",
+            "otherEntityRelationshipName": "ciudades",
+            "relationshipName": "aeropuertos"
+        }
+    ],
+    "changelogDate": "20200914005207",
+    "entityTableName": "ciudades",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

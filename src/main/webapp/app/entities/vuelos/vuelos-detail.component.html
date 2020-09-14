@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vuelos">
+            <h2><span jhiTranslate="pruebaJhipsterApp.vuelos.detail.title">Vuelos</span> {{vuelos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{vuelos.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.diasSemana">Dias Semana</span></dt>
+                <dd>
+                    <span>{{vuelos.diasSemana}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.fechaSalida">Fecha Salida</span></dt>
+                <dd>
+                    <span>{{vuelos.fechaSalida}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.fechaArribo9">Fecha Arribo 9</span></dt>
+                <dd>
+                    <span>{{vuelos.fechaArribo9}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.plazasVacias">Plazas Vacias</span></dt>
+                <dd>
+                    <span>{{vuelos.plazasVacias}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.orden">Orden</span></dt>
+                <dd>
+                    <span>{{vuelos.orden}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.estadoVuelo">Estado Vuelo</span></dt>
+                <dd>
+                    <span>{{vuelos.estadoVuelo}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.esEscala">Es Escala</span></dt>
+                <dd>
+                    <span>{{vuelos.esEscala}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.aeropuertoSalida">Aeropuerto Salida</span></dt>
+                <dd>
+                    <div *ngIf="vuelos.aeropuertoSalidaId">
+                        <a [routerLink]="['/aeropuertos', vuelos.aeropuertoSalidaId, 'view']">{{vuelos.aeropuertoSalidaNombre}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.aeropuertoArribo">Aeropuerto Arribo</span></dt>
+                <dd>
+                    <div *ngIf="vuelos.aeropuertoArriboId">
+                        <a [routerLink]="['/aeropuertos', vuelos.aeropuertoArriboId, 'view']">{{vuelos.aeropuertoArriboNombre}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.idAvion">Id Avion</span></dt>
+                <dd>
+                    <div *ngIf="vuelos.idAvionId">
+                        <a [routerLink]="['/aviones', vuelos.idAvionId, 'view']">{{vuelos.idAvionNombre}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="pruebaJhipsterApp.vuelos.idPrograma">Id Programa</span></dt>
+                <dd>
+                    <div *ngIf="vuelos.idProgramaId">
+                        <a [routerLink]="['/programas-vuelos', vuelos.idProgramaId, 'view']">{{vuelos.idProgramaNombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vuelos', vuelos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "pruebaJhipsterApp": {
+    "avionModelos": {
+      "home": {
+        "title": "Avion Modelos",
+        "createLabel": "Crear nuevo Avion Modelos",
+        "createOrEditLabel": "Crear o editar Avion Modelos",
+        "notFound": "No Avion Modelos found"
+      },
+      "created": "Un nuevo Avion Modelos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Avion Modelos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Avion Modelos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Avion Modelos {{ id }}?"
+      },
+      "detail": {
+        "title": "Avion Modelos"
+      },
+      "nombre": "Nombre",
+      "capacidad": "Capacidad",
+      "aviones": "Aviones"
+    }
+  }
+}

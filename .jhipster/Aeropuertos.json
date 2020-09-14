@@ -1,0 +1,28 @@
+{
+    "name": "Aeropuertos",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ciudades",
+            "otherEntityRelationshipName": "aeropuertos",
+            "relationshipName": "ciudades",
+            "otherEntityField": "ciudad"
+        }
+    ],
+    "changelogDate": "20200914005206",
+    "entityTableName": "aeropuertos",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
